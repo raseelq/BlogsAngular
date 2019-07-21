@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class LoginService {
 
-  baseUrl:string="http://localhost:8090/postmanager";
+  baseUrl:string="/postmanager";
 
   constructor(private httpClient:HttpClient) { }
 

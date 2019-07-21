@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiService {
 
-  baseUrl:string="http://localhost:8090/postmanager/api/posts";
+  baseUrl:string="/postmanager/api/posts";
 
   getPosts(){
     return this.httpClient.get(this.baseUrl+'/all');
