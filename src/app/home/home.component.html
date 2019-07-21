@@ -1,0 +1,44 @@
+<mat-toolbar class="jumbotron">
+        <mat-toolbar-row>
+           <mat-icon class="example-icon">home</mat-icon>
+        
+            <a mat-button [routerLink]="''">Home</a>
+            
+            <a mat-button [routerLink]="'/blogs'">My Blogs </a>
+        
+          <h1>Welcome to Bloggers World</h1>
+          
+          <span class="example-spacer"></span>
+          <a hidden="true">Hello {{user.displayName}!}</a>
+          <a mat-button (click)="userLogout($event)">Login</a>
+        </mat-toolbar-row>
+      </mat-toolbar>
+<mat-grid-list *ngFor="let post of posts" let i = "index" cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+            <mat-card class="example-card">
+                    <mat-card-header>
+                      <mat-card-title>{{post.id}}</mat-card-title>
+                      <mat-card-subtitle>{{post.title}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+            </mat-card>
+       
+    </mat-grid-tile>
+    <mat-grid-tile>
+            <mat-card class="example-card">
+            <mat-card-content>
+                    <p>
+                        {{post.content}}
+                    </p>
+                  </mat-card-content>
+            <mat-card-actions>
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                        <mat-form-field class="example-full-width">
+                                <textarea matInput placeholder="Leave a comment" id="commentValue" (keyup.enter)="update_comment(commentValue.value)"></textarea>
+                              </mat-form-field>
+                         <button mat-button>Read More...</button>     
+            </mat-card-actions>
+            </mat-card>
+    </mat-grid-tile>
+        </mat-grid-list>
