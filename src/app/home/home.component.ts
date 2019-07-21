@@ -17,12 +17,20 @@ export class HomeComponent implements OnInit {
 
     this.apiService.getPosts().subscribe((res : any[])=>{
       this.posts = res;
+  },
+  (error)  => {
+      alert("Techincal Error");
+      console.log(error);
   });
   
   //.subscribe(hero => this.heroes.push(hero));
-  this.apiService.commentPosts().subscribe((res : any[])=>{
-    this.posts = res;
-});
+  // this.apiService.commentPosts().subscribe((res : any[])=>{
+    // this.posts = res;
+// },
+// (error)  => {
+    // alert("Techincal Error");
+    // console.log(error);
+// });
   }
   ngOnInit() {
      

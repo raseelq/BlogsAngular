@@ -12,7 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,MatMenuModule,MatCardModule,MatGridListModule } from '@angular/material';
 
 import {MatInputModule} from '@angular/material/input';
-import { MainComponent } from './main/main.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TokenService } from './login/token.service';
+import { LoginService } from './login/login.service';
+import { ApiService } from './api.service';
 
 
 
@@ -23,7 +27,7 @@ import { MainComponent } from './main/main.component';
     AppComponent,
     HomeComponent,
     BlogsComponent,
-    MainComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +43,12 @@ import { MainComponent } from './main/main.component';
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
    
   ],
-  providers: [],
+  providers: [TokenService, LoginService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

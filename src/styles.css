@@ -1,3 +1,5 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
 .example-icon {
   padding: 0 14px;
   color: #fff
@@ -9,7 +11,7 @@
 }
 
 .jumbotron {
-  background-image: url(C:\Users\Laptop\Desktop\BlogsAngular\BlogsAngular\src\assets\header-bg.png);
+  background-image: url('./assets/header-bg.png');
   height: 200px;
   border-radius: 0;
   margin-bottom: 1rem;

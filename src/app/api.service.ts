@@ -7,7 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ApiService {
 
-  baseUrl:string="http://localhost:8090/postmanager/api/posts/";
+  baseUrl:string="http://localhost:8090/postmanager/api/posts";
 
   getPosts(){
     return this.httpClient.get(this.baseUrl+'/all');
