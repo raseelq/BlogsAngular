@@ -10,14 +10,11 @@ export class LoginService {
 
 authenticate(username: string, password: string){
     let headers: HttpHeaders = new HttpHeaders();
-    let body = {username:username, passowrd:password};
+    let body = {username:username, password:password};
     console.log(body)
     return this.httpClient.post(this.baseUrl+'/auth/signin',  body,
     { headers: headers });
 }
-
-
-
 
 
 }

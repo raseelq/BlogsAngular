@@ -1,31 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { TokenService } from './login/token.service';
 
 @Injectable()
 export class ApiService {
 
-  baseUrl:string="/postmanager/api/posts";
+  baseUrl:string="/postmanager/api/secure/posts";
+  constructor(private httpClient:HttpClient, private tokenService:TokenService) { }
 
   getPosts(){
-    return this.httpClient.get(this.baseUrl+'/all');
-}
-getMyPosts(){
-  return this.httpClient.get(this.baseUrl+'/own');
-}
+    let headers =  new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': this.tokenService.getToken()
+    })
+    return this.httpClient.get(this.baseUrl+'/all', { headers });
+  }
+  getMyPosts(){
+    let headers =  new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': this.tokenService.getToken()
+    })
+    return this.httpClient.get(this.baseUrl+'/own', { headers });
+  }
 
 
-private httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
-  })
-};
-commentPosts(){
+  
+  commentPosts(){
 
-  return this.httpClient.get(this.baseUrl+'/1/comment//1');
-}
+    return this.httpClient.get(this.baseUrl+'/1/comment//1');
+  }
 
 
-  constructor(private httpClient:HttpClient) { }
+   
 }

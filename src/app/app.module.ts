@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenService } from './login/token.service';
 import { LoginService } from './login/login.service';
 import { ApiService } from './api.service';
+import { AuthGuardService } from './AuthGuardService';
 
 
 
@@ -48,7 +49,7 @@ import { ApiService } from './api.service';
     ReactiveFormsModule
    
   ],
-  providers: [TokenService, LoginService, ApiService],
+  providers: [TokenService, LoginService, ApiService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

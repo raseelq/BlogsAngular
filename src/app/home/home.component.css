@@ -1,0 +1,7 @@
+mat-grid-tile {
+    height: 400px;
+   top:50px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+
+}

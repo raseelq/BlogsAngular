@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import {Observable} from 'rxjs';
+import { TokenService } from '../login/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +12,8 @@ import {Observable} from 'rxjs';
 export class HomeComponent implements OnInit {
   private posts  = []; 
   private postsObservable : Observable<any[]> ; 
-
-  constructor( private apiService:ApiService) { 
+  username:string;
+  constructor( private apiService:ApiService, private tokenService:TokenService, private router: Router) { 
 
     //this.postsObservable = this.apiService.getPosts();
 
@@ -33,9 +35,15 @@ export class HomeComponent implements OnInit {
 // });
   }
   ngOnInit() {
-     
+     this.username = this.tokenService.getUsername();
   
   };
+
+  userLogout () {
+    this.tokenService.clearToken();
+    this.router.navigate(['login']);
+    
+  }
 
   
 }
