@@ -16,16 +16,18 @@
 
 <div class="container">
   <div class="row" >
-      <button type="button" class="btn btn-primary float-left" (click)="openXl(content)">New Blog</button>
-  </div>
+      <div class="offset-md-10 col-md-2">
+        <app-dialog [name]="'New Blog'"></app-dialog>
+    </div>
+</div>
   &nbsp;
   <div *ngFor="let post of posts" let i = "index" class="row">
-      <div class="col">{{post.title}}</div>
-      <div class="col-8">{{post.content}}</div>
-      <div class="col">
-          <button type="button" class="btn btn-primary">Delete Post</button>
+      <div class="col-md-2">{{post.title}}</div>
+      <div class="col-md-8">{{post.content}}</div>
+      <div class="col-md-2 blog-controls">
+          <button class="btn btn-primary" (click)="deletePost(post.id)">Delete Post</button>
+          <app-dialog [name]="'Edit Blog'" [mode]="'edit'" [post]="post"></app-dialog>
           
-          <button type="button" class="btn btn-primary">Read More..</button>  
       </div>
   </div>
 </div>

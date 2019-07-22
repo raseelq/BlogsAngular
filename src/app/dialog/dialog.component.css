@@ -1,0 +1,7 @@
+.form-control {
+    margin-bottom: 30px;
+}
+
+textarea {
+    min-height: 250px;
+}

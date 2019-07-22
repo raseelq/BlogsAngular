@@ -38,6 +38,12 @@ export class BlogsComponent implements OnInit {
     //let blogDialog=this.basicDialog.openXl(Content);
   }
 
-  
+  deletePost(id){
+    console.log(id)
+  }
+
+  showEditDialog(post) {
+    console.log(post)
+  }
 
 }

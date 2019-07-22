@@ -19,6 +19,7 @@ import { LoginService } from './login/login.service';
 import { ApiService } from './api.service';
 import { AuthGuardService } from './AuthGuardService';
 import { DialogComponent } from './dialog/dialog.component'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DialogComponent } from './dialog/dialog.component'
     MatGridListModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
    
   ],
   providers: [TokenService, LoginService, ApiService, AuthGuardService],

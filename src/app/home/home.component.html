@@ -12,6 +12,9 @@
           <h3 >Hello {{username}}</h3>
           <a mat-button (click)="userLogout()">Logout</a>
         </mat-toolbar-row>
+        <mat-toolbar-row>
+                <input class="offset-md-8 col-md-4" type="text" #box (keyup)="onKey(box.value)" placeholder="search"/>
+        </mat-toolbar-row>
       </mat-toolbar>
 <mat-grid-list *ngFor="let post of posts" let i = "index" cols="3" rowHeight="3:3" gutterSize="20px">
         <mat-grid-tile colspan="1">
