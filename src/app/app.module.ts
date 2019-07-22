@@ -18,9 +18,7 @@ import { TokenService } from './login/token.service';
 import { LoginService } from './login/login.service';
 import { ApiService } from './api.service';
 import { AuthGuardService } from './AuthGuardService';
-
-
-
+import { DialogComponent } from './dialog/dialog.component'
 
 
 @NgModule({
@@ -28,7 +26,8 @@ import { AuthGuardService } from './AuthGuardService';
     AppComponent,
     HomeComponent,
     BlogsComponent,
-    LoginComponent
+    LoginComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

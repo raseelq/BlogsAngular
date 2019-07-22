@@ -1,3 +1,34 @@
-<p>
-  blogs works!
-</p>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand">Bloggers World</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+              </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/myblogs">My Blogs <span class="sr-only">(current)</span></a>
+          </li>
+         
+          </ul>
+        </div>
+      </nav>
+
+<div class="container">
+  <div class="row" >
+      <button type="button" class="btn btn-primary float-left" (click)="openXl(content)">New Blog</button>
+  </div>
+  &nbsp;
+  <div *ngFor="let post of posts" let i = "index" class="row">
+      <div class="col">{{post.title}}</div>
+      <div class="col-8">{{post.content}}</div>
+      <div class="col">
+          <button type="button" class="btn btn-primary">Delete Post</button>
+          
+          <button type="button" class="btn btn-primary">Read More..</button>  
+      </div>
+  </div>
+</div>
+
+
+
