@@ -25,9 +25,8 @@
       <div class="col-md-2">{{post.title}}</div>
       <div class="col-md-8">{{post.content}}</div>
       <div class="col-md-2 blog-controls">
-          <button class="btn btn-primary" (click)="deletePost(post.id)">Delete Post</button>
           <app-dialog [name]="'Edit Blog'" [mode]="'edit'" [post]="post"></app-dialog>
-          
+          <button class="btn btn-primary" (click)="deletePost(post.id)">Delete Post</button>     
       </div>
   </div>
 </div>

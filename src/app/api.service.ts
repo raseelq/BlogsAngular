@@ -6,7 +6,7 @@ import { TokenService } from './login/token.service';
 @Injectable()
 export class ApiService {
 
-  baseUrl:string="/postmanager/api/insecure/posts";
+  baseUrl:string="/postmanager/api/secure/posts";
   constructor(private httpClient:HttpClient, private tokenService:TokenService) { }
 
   getPosts(){

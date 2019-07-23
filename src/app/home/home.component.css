@@ -1,7 +1,6 @@
-mat-grid-tile {
-    height: 400px;
-   top:50px;
-    overflow:hidden;
-    text-overflow: ellipsis;
-
+.row{
+margin-bottom: 10px;
+}
+.form-control input{
+   margin-right: 15px;
 }
