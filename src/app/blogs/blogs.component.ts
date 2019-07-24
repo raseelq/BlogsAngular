@@ -47,5 +47,6 @@ export class BlogsComponent implements OnInit {
   showEditDialog(post) {
     console.log(post)
   }
+  
 
 }
