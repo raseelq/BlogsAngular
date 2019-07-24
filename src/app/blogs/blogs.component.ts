@@ -16,6 +16,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class BlogsComponent implements OnInit {
   private posts  = []; 
   private postsObservable : Observable<any[]> ; 
+  username:string;
  
   
 
@@ -31,6 +32,7 @@ export class BlogsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.username = this.tokenService.getUsername();
   }
   newBlogDialog(){
     

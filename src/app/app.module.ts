@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,6 +20,10 @@ import { DialogComponent } from './dialog/dialog.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BlogsComponent,
     LoginComponent,
     DialogComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserModule,
     NgbModule
+    
    
   ],
   providers: [TokenService, LoginService, ApiService, AuthGuardService],

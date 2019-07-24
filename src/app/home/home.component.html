@@ -1,27 +1,54 @@
-<mat-toolbar class="jumbotron">
-                <mat-toolbar-row>
-                   <mat-icon class="example-icon">home</mat-icon>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+                <a class="navbar-brand" >Bloggers World</a>
                 
-                    <a mat-button >All Blogs</a>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/home">All Blogs <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/myblogs">My Blogs</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="isShown = !isShown" 
+                                 > Hello {{username}}
+                    </a>
+                   
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="#" (click)="userLogout()">Create User</a>
+                                  
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" (click)="userLogout()">Logout</a>
+                                </div>
+                              </li>
                     
-                    <a mat-button [routerLink]="'/myblogs'">My Blogs </a>
-                  
-                  <span class="example-spacer"></span>
-                  <h3 >Hello {{username}}</h3>
-                  <a mat-button (click)="userLogout()">Logout</a>
-                </mat-toolbar-row>
-                <mat-toolbar-row>
-                        <input class="offset-md-9 col-md-3" type="text" #box (keyup)="onKey(box.value)" placeholder="search"/>
-                </mat-toolbar-row>
-</mat-toolbar>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                        
+                        
+                <div class="navbar-brand" >Hello {{username}}</div>
+                
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #box (keyup)="onKey(box.value)" >
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="userLogout()">Logout</button>
+                  </form>
+                </div>
+              </nav>
+<div class="container-full-bg" style="margin-left: 50px;margin-right: 50px;">
+                
+<div class="row" >                          
+<div *ngFor="let post of posts" let i = "index">
 
-<div class="container">
-<div *ngFor="let post of posts" let i = "index" class="row">
-        <div class="col-md-2">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="img-thumbnail">
-        </div>  
-    <div class="col-md-2">{{post.title}}</div>
-    <div class="col-md-8">{{post.content}}</div>
+<div class="card" style="width: 40rem; margin-left:50px; margin-bottom:20px;margin-top: 50px;">
+        <img class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content}}</p>
+            
+        </div>
+        </div>
+        
+</div>
 </div>
 </div>
 

@@ -16,44 +16,81 @@ export class DialogComponent implements OnInit {
   @Input("post") post:any;
   @Input("mode") mode:string;//by default new
   blogForm: FormGroup;
+  registerForm: FormGroup;
+  model: any = {};
+  submitted = false;
 
   constructor(private modalService: NgbModal, private apiService: ApiService, private router:Router) {}
 
  
   openXl(content) { 
     this.modalService.open(content, {size: 'xl'}); 
-    if(this.mode !="edit")  {
+    if(this.mode=="newBlog")  {
       this.blogForm = new FormGroup({
-        title: new FormControl("", Validators.required),
+        title: new FormControl("",  Validators.compose(
+          [Validators.minLength(5), Validators.required])),
         content: new FormControl("", Validators.required)
       });
-    } else {
+    } else if(this.mode=="edit")  {
       this.blogForm = new FormGroup({
         title: new FormControl(this.post.title, Validators.required),
         content: new FormControl(this.post.content, Validators.required)
-      });
+      });}
+      else {
+        this.registerForm = new FormGroup({
+          firstName: new FormControl("",  Validators.compose(
+            [Validators.minLength(5), Validators.required])),
+          lastName: new FormControl("", Validators.required),
+          username: new FormControl("", Validators.required),
+          password:new FormControl("", Validators.required)
+        });
+
+      }
     }
-  }
+  
 
   
   ngOnInit() {
-    if(this.mode !="edit")  {
+    if(this.mode =="newBlog")  {
       this.blogForm = new FormGroup({
-        title: new FormControl("", Validators.required),
+        title: new FormControl("", Validators.compose(
+          [Validators.minLength(5), Validators.required])),
         content: new FormControl("", Validators.required)
       });
-    } else {
+    } else if(this.mode=="edit"){
       this.blogForm = new FormGroup({
         title: new FormControl(this.post.title, Validators.required),
         content: new FormControl(this.post.content, Validators.required)
       });
     }
-  }
+      else{
+        this.registerForm = new FormGroup({
+          firstName: new FormControl("",  Validators.compose(
+            [Validators.minLength(5), Validators.required])),
+          lastName: new FormControl("", Validators.required),
+          username: new FormControl("", Validators.required),
+          password:new FormControl("", Validators.required)
+        });
+
+      }
+    }
+  
+  get f() { return this.blogForm.controls; }
 
   onSubmit() {
-    if(this.mode =="edit")  {
+    this.submitted = true;
+    if (this.blogForm.invalid) {
+      return;
+  } 
+  
+  else{
+    
+    if(this.mode =="edit") {
+     {
       let title = this.blogForm.get(["title"]).value;
       let content = this.blogForm.get(["content"]).value;
+    //  if(this.blogForm.invalid){alert("missing field");}
+    // else{
       this.apiService.editPost(this.post['id'], title, content).subscribe((data)=> {
         window.location.reload();
       },
@@ -62,17 +99,40 @@ export class DialogComponent implements OnInit {
         console.log(error)
       }
       )
-    }  else {
-      let title = this.blogForm.get(["title"]).value;
-      let content = this.blogForm.get(["content"]).value;
-      this.apiService.createPost(title, content).subscribe((data)=> {
-        window.location.reload();
-      },
-      (error) => {
-        alert("Techincal Error");
-        console.log(error)
+    }}  
+      else  {
+      
+            let title = this.blogForm.get(["title"]).value;
+            let content = this.blogForm.get(["content"]).value;
+          // if(this.blogForm.invalid){alert("missing field");}
+          // else{
+            this.apiService.createPost(title, content).subscribe((data)=> {
+              window.location.reload();
+            },
+            (error) => {
+              alert("Techincal Error");
+              console.log(error)
+            }
+            )}
+           
+          }
       }
-      )
+    
+
+    Register(){
+      this.submitted = true;
+      if (this.registerForm.invalid) {
+        return;
+    } else{
+      let firstname=this.registerForm.get("firstName").value;
+      let lastname=this.registerForm.get("lastName").value;
+      let username=this.registerForm.get("userName").value;
+      let password=this.registerForm.get("userName").value;
+      console.log(firstname);
+      console.log(lastname);
+      console.log(username);
+      console.log(password);
+
     }
   }
 

@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   private posts  = []; 
   private postsObservable : Observable<any[]> ; 
   username:string;
+  isShown:boolean=false;
   constructor( private apiService:ApiService, private tokenService:TokenService, private router: Router) { 
 
     //this.postsObservable = this.apiService.getPosts();

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   signInForm: FormGroup;
+  submitted = false;
   constructor( private tokenService: TokenService
     , private loginService: LoginService
     , private router: Router) { }
@@ -22,8 +23,14 @@ export class LoginComponent implements OnInit {
       password: new FormControl("", Validators.required)
     });
   }
+  get f() { return this.signInForm.controls; }
 
   onSubmit() {
+
+    this.submitted = true;
+    if (this.signInForm.invalid) {
+      return;
+  } else{
 
       let username = this.signInForm.get(["username"]).value;
       let password = this.signInForm.get(["password"]).value;
@@ -33,11 +40,11 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUsername(data['username'])
         this.router.navigate(['home']);
       },(error)=> {
-        alert("Authentication Failed")
+        alert("PLease Enter Username and Password")
         console.log(error);
       })
     
   }
 
-
+}
 }
