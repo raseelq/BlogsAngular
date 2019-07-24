@@ -47,13 +47,24 @@ export class HomeComponent implements OnInit {
   }
 
   onKey(value) {
-    this.apiService.search(value).subscribe((data: any[]) =>{
-      this.posts = data;
-    },
-    (error) => {
-      alert("Technical Error")
-      console.log(error)
-    })
+    if(value == "") {
+      this.apiService.getPosts().subscribe((data: any[]) =>{
+        this.posts = data;
+      },
+      (error) => {
+        alert("Technical Error")
+        console.log(error)
+      })
+    } else {
+      this.apiService.search(value).subscribe((data: any[]) =>{
+        this.posts = data;
+      },
+      (error) => {
+        alert("Technical Error")
+        console.log(error)
+      })
+    }
+    
     console.log(value)
   }
 
