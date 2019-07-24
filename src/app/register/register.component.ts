@@ -27,6 +27,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+
+    this.submitted = true;
+    if (this.registerForm.invalid){
+      return;
+  } else{
     let username = this.registerForm.get(["username"]).value;
     let password = this.registerForm.get(["password"]).value;
     this.loginService.register(username, password).subscribe((data) => {
@@ -36,7 +41,7 @@ export class RegisterComponent implements OnInit {
       alert(error)
     });
 
-
+  }
    
   }
 
