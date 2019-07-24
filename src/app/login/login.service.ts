@@ -17,4 +17,13 @@ authenticate(username: string, password: string){
 }
 
 
+register(username: string, password: string) {
+  let headers: HttpHeaders = new HttpHeaders();
+  let body = {username:username, password:password};
+  console.log(body)
+  return this.httpClient.post(this.baseUrl+'/auth/register',  body,
+  { headers: headers });
+}
+
+
 }

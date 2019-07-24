@@ -13,7 +13,7 @@
         
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <app-dialog [name]="'New Blog'" style="margin-top: 10px;"></app-dialog>
+        <app-dialog [name]="'New Blog'" [mode]="'newBlog'" style="margin-top: 10px;"></app-dialog>
         
         
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #box (keyup)="onKey(box.value)" >

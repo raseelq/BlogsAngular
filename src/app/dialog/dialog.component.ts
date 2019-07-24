@@ -16,7 +16,6 @@ export class DialogComponent implements OnInit {
   @Input("post") post:any;
   @Input("mode") mode:string;//by default new
   blogForm: FormGroup;
-  registerForm: FormGroup;
   model: any = {};
   submitted = false;
 
@@ -35,9 +34,9 @@ export class DialogComponent implements OnInit {
       this.blogForm = new FormGroup({
         title: new FormControl(this.post.title, Validators.required),
         content: new FormControl(this.post.content, Validators.required)
-      });}
-      else {
-        this.registerForm = new FormGroup({
+      });
+    } else {
+        this.blogForm = new FormGroup({
           firstName: new FormControl("",  Validators.compose(
             [Validators.minLength(5), Validators.required])),
           lastName: new FormControl("", Validators.required),
@@ -64,7 +63,7 @@ export class DialogComponent implements OnInit {
       });
     }
       else{
-        this.registerForm = new FormGroup({
+        this.blogForm = new FormGroup({
           firstName: new FormControl("",  Validators.compose(
             [Validators.minLength(5), Validators.required])),
           lastName: new FormControl("", Validators.required),
@@ -75,7 +74,7 @@ export class DialogComponent implements OnInit {
       }
     }
   
-  get f() { return this.blogForm.controls; }
+  get blogControls() { return this.blogForm.controls; }
 
   onSubmit() {
     this.submitted = true;
@@ -121,13 +120,13 @@ export class DialogComponent implements OnInit {
 
     Register(){
       this.submitted = true;
-      if (this.registerForm.invalid) {
+      if (this.blogForm.invalid) {
         return;
     } else{
-      let firstname=this.registerForm.get("firstName").value;
-      let lastname=this.registerForm.get("lastName").value;
-      let username=this.registerForm.get("userName").value;
-      let password=this.registerForm.get("userName").value;
+      let firstname=this.blogForm.get("firstName").value;
+      let lastname=this.blogForm.get("lastName").value;
+      let username=this.blogForm.get("userName").value;
+      let password=this.blogForm.get("userName").value;
       console.log(firstname);
       console.log(lastname);
       console.log(username);

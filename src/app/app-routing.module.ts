@@ -4,13 +4,20 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './AuthGuardService';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
 
   {
     path:'login',
-    component:LoginComponent},
+    component:LoginComponent
+  },
   {
+    path:'register',
+    component:RegisterComponent
+  },
+  {
+    
     path:'home',
     component:HomeComponent,
     canActivate: [AuthGuardService] 

@@ -18,6 +18,7 @@ import { ApiService } from './api.service';
 import { AuthGuardService } from './AuthGuardService';
 import { DialogComponent } from './dialog/dialog.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -30,7 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     BlogsComponent,
     LoginComponent,
-    DialogComponent
+    DialogComponent,
+    RegisterComponent
     
   ],
   imports: [
